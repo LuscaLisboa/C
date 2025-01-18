@@ -49,20 +49,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine,
         return 0;
     }
 
-    // Altera o nome da janela
+    // Altera o Nome da Janela
     SetWindowText(hwnd, "Altera o nome da janela");
 
-    // Coordenadas (x, y) | Largura e altura
+    // Coordenadas (x, y) | Largura e Altura
     SetWindowPos(hwnd, NULL, 0, 0, 1800, 960, SWP_NOZORDER | SWP_NOACTIVATE); 
 
-    
+    // Não Redimensionável
+    SetWindowLong(hwnd, GWL_STYLE, WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX);
 
 
     ShowWindow(hwnd, nCmdShow);
     UpdateWindow(hwnd);
 
     // Run the message loop.
-    MSG msg;
+    MSG msg = { };
     while (GetMessage(&msg, NULL, 0, 0) > 0) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
