@@ -1,5 +1,12 @@
 *.exe
 .vscode
 
-# OpenGL library
+
+
+Libraries/
+
+# OpenGL Library
 glfw-3.4.bin.WIN64/
+
+# Extension Wrangler Library
+glew-2.1.0/
