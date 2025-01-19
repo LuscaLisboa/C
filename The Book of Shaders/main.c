@@ -1,16 +1,16 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 
-int main() {
+int main(void) {
     if (!glfwInit()) {
         printf("Falha ao inicializar GLFW\n");
         return -1;
     }
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Teste OpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Teste GLFW", NULL, NULL);
     if (!window) {
         glfwTerminate();
-        printf("Falha ao criar janela\n");
+        printf("Falha ao criar janela GLFW\n");
         return -1;
     }
 
