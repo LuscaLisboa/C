@@ -1,0 +1,5 @@
+# Config geral p/ finais de linha
+* text=auto
+
+# Forçar finais de linha LF para arquivos de código
+*.h text eol=lf
