@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine,
     wc.lpszMenuName = NULL;
     wc.lpszClassName = CLASS_NAME;
 
-    // Register the screen class
+    // Register the screen class 
     if (!RegisterClass(&wc)) 
     {
         return 0;
