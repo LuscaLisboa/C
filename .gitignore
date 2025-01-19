@@ -1,2 +1,5 @@
 *.exe
 .vscode
+
+# OpenGL library
+glfw-3.4.bin.WIN64/
