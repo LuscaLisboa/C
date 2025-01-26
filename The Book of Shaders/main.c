@@ -16,6 +16,10 @@ int main(void) {
 
     glfwMakeContextCurrent(window);
 
+    // Define as cores do glClear (isso é o fundo da janela antes de usar shaders)
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
         glfwSwapBuffers(window);
