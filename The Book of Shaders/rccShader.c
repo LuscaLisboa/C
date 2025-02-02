@@ -4,19 +4,35 @@
 
 char* readShaderSource(const char* filePath) {
     FILE* file = fopen(filePath, "r");
-    if(!file) {
+    if (!file) {
         fprintf(stderr, "Erro ao abrir arquivo: %s\n", filePath);
         return NULL;
     }
 
     fseek(file, 0, SEEK_END);
     long length = ftell(file);
-
     fseek(file, 0, SEEK_SET);
-    char* source = (char*)malloc(length+1);
-    fread(source, 1, length, file);
 
-    source[length] = '\0';
+    char* source = (char*)malloc(length + 1);
+    if (source == NULL) {
+        fprintf(stderr, "Erro ao alocar memória para o shader.\n");
+        fclose(file);
+        return NULL;
+    }
+
+    size_t bytesRead = fread(source, 1, length, file);
+    if (bytesRead != length) {
+        fprintf(stderr, "Erro ao ler o arquivo. Esperado %ld, mas leu %zu.\n", length, bytesRead);
+    }
+
+    if (source[bytesRead - 1] == '\n') {
+        source[bytesRead - 1] = '\0';  // Remove o '\n' no final
+    }
+    if (source[bytesRead - 1] == '\r') {
+        source[bytesRead - 1] = '\0';  // Remove o '\r' no final
+    }
+
+    source[bytesRead] = '\0'; 
     fclose(file);
 
     return source;
