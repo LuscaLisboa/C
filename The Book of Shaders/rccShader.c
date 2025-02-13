@@ -1,4 +1,5 @@
 #include "libs/rccShader.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -38,9 +39,9 @@ char* readShaderSource(const char* filePath) {
     return source;
 }
 
-GLuint compileShader(const char* source, GLenum shaderType) {
+GLuint compileShader(const char* filePath, GLenum shaderType) {
     GLuint shader = glCreateShader(shaderType);
-    glShaderSource(shader, 1, &source, NULL);
+    glShaderSource(shader, 1, &filePath, NULL);
     glCompileShader(shader);
 
     GLint success;
